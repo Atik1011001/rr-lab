@@ -1,0 +1,7 @@
+Ros noetic
+Moveit
+Gazebo
+Git
+Python3
+microsoft code
+
