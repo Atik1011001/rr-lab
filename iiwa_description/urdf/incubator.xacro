@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="https://ros.org/wiki/xacro">
+  <!-- Here we define the 2 parameters of the macro -->
+  <xacro:macro name="incubator" params="prefix connected_to X Y Z r p y">
+
+    <!-- Create a fixed joint with a parameterized name. -->
+    <joint name="${prefix}_incubator_joint0" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${connected_to}"/>
+      <child link="${prefix}_incubator_link0"/>
+      <!-- The tool is directly attached to the flange. -->
+      <origin rpy="${r} ${p} ${y}" xyz="${X} ${Y} ${Z}"/>
+    </joint>
+    <link name="${prefix}_incubator_link0">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0 0 0"/>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0 0 0"/>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_incubator_joint1" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}_incubator_link0"/>
+      <child link="${prefix}_incubator_link1"/>
+      <!-- The tool is directly attached to the flange. -->
+    </joint>
+    <link name="${prefix}_incubator_link1">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0 0 0.5"/>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0 0 0.5"/>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_incubator_joint2" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}_incubator_link1"/>
+      <child link="${prefix}_incubator_link2"/>
+      <!-- The tool is directly attached to the flange. -->
+    </joint>
+    <link name="${prefix}_incubator_link2">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0 0 1"/>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0 0 1"/>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_incubator_joint3" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}_incubator_link2"/>
+      <child link="${prefix}_incubator_link3"/>
+      <!-- The tool is directly attached to the flange. -->
+    </joint>
+    <link name="${prefix}_incubator_link3">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0 0 1.5"/>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0 0 1.5"/>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_incubator_joint4" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}_incubator_link3"/>
+      <child link="${prefix}_incubator_link4"/>
+      <!-- The tool is directly attached to the flange. -->
+    </joint>
+    <link name="${prefix}_incubator_link4">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0.5 0 1.5"/>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0.5 0 1.5"/>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_incubator_joint5" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}_incubator_link4"/>
+      <child link="${prefix}_incubator_link5"/>
+      <!-- The tool is directly attached to the flange. -->
+    </joint>
+    <link name="${prefix}_incubator_link5">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0.5 0 1"/>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0.5 0 1"/>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_incubator_joint6" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}_incubator_link5"/>
+      <child link="${prefix}_incubator_link6"/>
+      <!-- The tool is directly attached to the flange. -->
+    </joint>
+    <link name="${prefix}_incubator_link6">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0.5 0 0.5"/>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0.5 0 0.5"/>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_incubator_joint7" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}_incubator_link6"/>
+      <child link="${prefix}_incubator_link7"/>
+      <!-- The tool is directly attached to the flange. -->
+    </joint>
+    <link name="${prefix}_incubator_link7">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0.5 0 0"/>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/Part1.STL"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0.5 0 0"/>
+      </collision>
+    </link>
+
+  </xacro:macro>
+</robot>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="https://ros.org/wiki/xacro">
+  <!-- Here we define the 2 parameters of the macro -->
+  <xacro:macro name="left_panel" params="prefix connected_to X Y Z r p y">
+
+    <!-- Create a fixed joint with a parameterized name. -->
+    <joint name="${prefix}_left_panel_joint" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${connected_to}"/>
+      <child link="${prefix}_left_panel_link"/>
+      <!-- The tool is directly attached to the flange. -->
+      <origin rpy="${r} ${p} ${y}" xyz="${X} ${Y} ${Z}"/>
+    </joint>
+
+    <link name="${prefix}_left_panel_link">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/left_panel.stl"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="Grey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/left_panel.stl"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+</robot>

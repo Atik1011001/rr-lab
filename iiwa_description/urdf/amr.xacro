@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="https://ros.org/wiki/xacro">
+  <!-- Here we define the 2 parameters of the macro -->
+  <xacro:macro name="amr" params="connected_to">
+
+    <!-- Create a fixed joint with a parameterized name. -->
+    <joint name="amr_joint" type="prismatic">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${connected_to}"/>
+      <child link="amr_link"/>
+      <!-- The tool is directly attached to the flange. -->
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <limit effort="2000.0" lower="-10" upper="10" velocity="0.5"/>
+    </joint>
+    <link name="amr_link">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/kuka_amr.STL"/>
+        </geometry>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/kuka_amr.STL"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+</robot>

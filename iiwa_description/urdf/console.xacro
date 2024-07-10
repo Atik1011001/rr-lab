@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="https://ros.org/wiki/xacro">
+  <!-- Here we define the 2 parameters of the macro -->
+  <xacro:macro name="console" params="prefix connected_to X Y Z r p y">
+
+    <!-- Create a fixed joint with a parameterized name. -->
+    <joint name="${prefix}_console_joint0" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${connected_to}"/>
+      <child link="${prefix}_console_link0"/>
+      <!-- The tool is directly attached to the flange. -->
+      <origin rpy="${r} ${p} ${y}" xyz="${X} ${Y} ${Z}"/>
+    </joint>
+    <link name="${prefix}_console_link0">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/supercomputer.STL"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="Grey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/supercomputer.STL"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_console_joint1" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}_console_link0"/>
+      <child link="${prefix}_console_link1"/>
+      <!-- The tool is directly attached to the flange. -->
+    </joint>
+    <link name="${prefix}_console_link1">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/supercomputer.STL"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 1.4 0"/>
+        <material name="Grey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/supercomputer.STL"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_console_joint2" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}_console_link1"/>
+      <child link="${prefix}_console_link2"/>
+      <!-- The tool is directly attached to the flange. -->
+    </joint>
+    <link name="${prefix}_console_link2">
+      <visual>
+        <geometry>
+          <!-- The path to the visual meshes in the package. -->
+          <mesh filename="package://iiwa_description/meshes/supercomputer.STL"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 2.8 0"/>
+        <material name="Grey"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/supercomputer.STL"/>
+        </geometry>
+      </collision>
+    </link>
+
+  </xacro:macro>
+</robot>

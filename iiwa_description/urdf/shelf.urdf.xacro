@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="origins_base_scene" >
+  <!-- This is the main file defining our robot arrangement and physical environment. -->
+  <xacro:arg name="taskboard" default="false"/>
+  <xacro:arg name="gazebo" default="false"/>
+
+  <link name="origins_ground" />
+
+  <xacro:include filename="$(find iiwa_description)/urdf/incubator.xacro" />
+  <xacro:incubator prefix="1" connected_to="origins_ground" X="0" Y="1.5" Z="1.69" r="0.0" p="1.57" y="0.0"/> 
+  <xacro:incubator prefix="2" connected_to="origins_ground" X="0" Y="-0.3" Z="1.69" r="0.0" p="1.57" y="0.0"/>
+
+  <xacro:incubator prefix="3" connected_to="origins_ground" X="2" Y="1.5" Z="1.69" r="0.0" p="1.57" y="0.0"/> 
+  <xacro:incubator prefix="4" connected_to="origins_ground" X="2" Y="-0.3" Z="1.69" r="0.0" p="1.57" y="0.0"/>
+
+  <!--correct-->
+  <xacro:include filename="$(find iiwa_description)/urdf/console.xacro" />
+  <xacro:console prefix="1" connected_to="origins_ground" X="0" Y="0.98" Z="0.08" r="0" p="-1.57" y="-1.57"/>
+
+  <xacro:include filename="$(find iiwa_description)/urdf/console.xacro" />
+  <xacro:console prefix="2" connected_to="origins_ground" X="0" Y="-0.92" Z="0.08" r="0" p="-1.57" y="-1.57"/>
+
+
+  <xacro:include filename="$(find iiwa_description)/urdf/amr.xacro" />
+  <xacro:amr connected_to="origins_ground"/>
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro" />
+  <!--Import the lbr iiwa macro -->
+  <xacro:include filename="$(find iiwa_description)/urdf/iiwa7.xacro"/>
+
+  <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+  <xacro:arg name="robot_name" default="iiwa"/>
+  <xacro:arg name="origin_xyz" default="0.96 0.36 0.67"/>
+  <xacro:arg name="origin_rpy" default="0 0 1.57"/>
+
+  <!--iiwa-->
+  <xacro:iiwa7 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="amr_link">
+    <origin xyz="$(arg origin_xyz)" rpy="$(arg origin_rpy)" />
+  </xacro:iiwa7>
+
+  <!-- The "world" link definition should be removed, but apparently it is necessary for Gazebo -->
+  <link name="world" />
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link="origins_ground" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+  <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+    </gazebo>
+
+</robot>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="origins_base_scene" >
+  <!-- This is the main file defining our robot arrangement and physical environment. -->
+  <xacro:arg name="taskboard" default="false"/>
+  <xacro:arg name="gazebo" default="false"/>
+
+  <link name="origins_ground" />
+
+  <xacro:include filename="$(find iiwa_description)/urdf/panel.xacro" />
+  <xacro:panel prefix="" connected_to="origins_ground" X="0" Y="0" Z="0" r="0" p="0" y="0"/> 
+  
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro" />
+
+  <!-- The "world" link definition should be removed, but apparently it is necessary for Gazebo -->
+  <link name="world" />
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link="origins_ground" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+  <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+    </gazebo>
+
+</robot>
