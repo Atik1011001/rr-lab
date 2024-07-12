@@ -55,6 +55,7 @@ CMAKE_BINARY_DIR = /home/observer/rr-lab/build
 # The main recursive "all" target.
 all: gtest/all
 all: xarm_ros/examples/multi_xarm5/all
+all: xarm_ros/rr_lab/all
 all: xarm_ros/xarm_bringup/all
 all: xarm_ros/xarm_description/all
 all: xarm_ros/dual_xarm6_moveit_config/all
@@ -87,6 +88,7 @@ all: xarm_ros/xarm_vision/d435i_xarm_setup/all
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: xarm_ros/examples/multi_xarm5/preinstall
+preinstall: xarm_ros/rr_lab/preinstall
 preinstall: xarm_ros/xarm_bringup/preinstall
 preinstall: xarm_ros/xarm_description/preinstall
 preinstall: xarm_ros/dual_xarm6_moveit_config/preinstall
@@ -124,6 +126,7 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: xarm_ros/examples/multi_xarm5/clean
+clean: xarm_ros/rr_lab/clean
 clean: xarm_ros/xarm_bringup/clean
 clean: xarm_ros/xarm_description/clean
 clean: xarm_ros/dual_xarm6_moveit_config/clean
@@ -353,6 +356,24 @@ xarm_ros/lite6_moveit_config/preinstall:
 xarm_ros/lite6_moveit_config/clean:
 
 .PHONY : xarm_ros/lite6_moveit_config/clean
+
+#=============================================================================
+# Directory level rules for directory xarm_ros/rr_lab
+
+# Recursive "all" directory target.
+xarm_ros/rr_lab/all:
+
+.PHONY : xarm_ros/rr_lab/all
+
+# Recursive "preinstall" directory target.
+xarm_ros/rr_lab/preinstall:
+
+.PHONY : xarm_ros/rr_lab/preinstall
+
+# Recursive "clean" directory target.
+xarm_ros/rr_lab/clean:
+
+.PHONY : xarm_ros/rr_lab/clean
 
 #=============================================================================
 # Directory level rules for directory xarm_ros/uf_robot_moveit_config

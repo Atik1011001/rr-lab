@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("xarm_ros/examples/multi_xarm5")
+subdirs("xarm_ros/rr_lab")
 subdirs("xarm_ros/xarm_bringup")
 subdirs("xarm_ros/xarm_description")
 subdirs("xarm_ros/dual_xarm6_moveit_config")

@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/observer/rr-lab/build/gtest/cmake_install.cmake")
   include("/home/observer/rr-lab/build/xarm_ros/examples/multi_xarm5/cmake_install.cmake")
+  include("/home/observer/rr-lab/build/xarm_ros/rr_lab/cmake_install.cmake")
   include("/home/observer/rr-lab/build/xarm_ros/xarm_bringup/cmake_install.cmake")
   include("/home/observer/rr-lab/build/xarm_ros/xarm_description/cmake_install.cmake")
   include("/home/observer/rr-lab/build/xarm_ros/dual_xarm6_moveit_config/cmake_install.cmake")

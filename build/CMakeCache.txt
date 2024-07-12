@@ -648,6 +648,12 @@ rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
 rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
 
 //Value Computed by CMake
+rr_lab_BINARY_DIR:STATIC=/home/observer/rr-lab/build/xarm_ros/rr_lab
+
+//Value Computed by CMake
+rr_lab_SOURCE_DIR:STATIC=/home/observer/rr-lab/src/xarm_ros/rr_lab
+
+//Value Computed by CMake
 run_recorded_traj_BINARY_DIR:STATIC=/home/observer/rr-lab/build/xarm_ros/examples/run_recorded_traj
 
 //Value Computed by CMake
@@ -1002,7 +1008,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=31
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=32
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
